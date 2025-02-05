@@ -72,7 +72,7 @@ export default function CreatePage() {
           setValue("resume", file)
           setFileSize(file.size)
         } else {
-          alert("Resume exceeds 500KB. Please upload a smaller file.")
+          alert("Resume exceeds 500KB. Please upload a two page resume.")
         }
       }
     },
@@ -102,7 +102,7 @@ export default function CreatePage() {
     console.log("Form data with wallet:", dataWithWallet)
 
     // Simulate network request
-    await new Promise((resolve) => setTimeout(resolve, 60000)) // 1 minute delay
+    await new Promise((resolve) => setTimeout(resolve, 30000)) // 1 minute delay
 
     // Simulate success (you can add your own logic here for actual submission)
     const isSuccess = Math.random() > 0.1 // 90% success rate for demonstration
@@ -282,7 +282,7 @@ export default function CreatePage() {
                 </div>
                 {watch("resume") && (
                   <p className="text-sm text-gray-500">
-                    File: {watch("resume").name} ({(fileSize / 1024).toFixed(2)} KB)
+                    File: {watch("resume")?.name ?? "No file selected"} ({(fileSize / 1024).toFixed(2)} KB)
                   </p>
                 )}
                 {errors.resume && <p className="text-red-500">{errors.resume.message}</p>}

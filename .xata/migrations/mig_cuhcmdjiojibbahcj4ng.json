@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cuhcmdjiojibbahcj4ng",
+    "operations": [
+      {
+        "add_column": {
+          "table": "resume-table",
+          "column": {
+            "name": "wallet",
+            "type": "text[]",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cuhcmdjiojibbahcj4ng",
+  "parent": "mig_cuhcm5jiojibbahcj4mg",
+  "schema": "public",
+  "startedAt": "2025-02-05T02:21:43.330447Z"
+}

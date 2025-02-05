@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cuhcm5jiojibbahcj4mg",
+    "operations": [
+      {
+        "add_column": {
+          "table": "resume-table",
+          "column": {
+            "name": "resume",
+            "type": "text[]",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cuhcm5jiojibbahcj4mg",
+  "parent": "mig_cuhclgjiojibbahcj4lg",
+  "schema": "public",
+  "startedAt": "2025-02-05T02:21:11.144041Z"
+}

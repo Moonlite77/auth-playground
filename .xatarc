@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Logan-Clemons-s-workspace-hnpk5n.us-east-1.xata.sh/db/talent-vault",
+  "codegen": {
+    "output": "app/xata/xata.ts"
+  }
+}
