@@ -11,6 +11,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useActiveAccount } from "thirdweb/react"
 import { useDropzone } from "react-dropzone"
+import { createProfile } from "../actions/createProfile"
 
 type FormData = {
   alias: string
@@ -94,21 +95,31 @@ export default function CreatePage() {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true)
     setStep(10) // Move to the submission status step
-
+  
     const dataWithWallet = {
       ...data,
       walletAddress,
     }
     console.log("Form data with wallet:", dataWithWallet)
-
-    // Simulate network request
-    await new Promise((resolve) => setTimeout(resolve, 30000)) // 1 minute delay
-
-    // Simulate success (you can add your own logic here for actual submission)
-    const isSuccess = Math.random() > 0.1 // 90% success rate for demonstration
-
-    setSubmissionStatus(isSuccess ? "success" : "error")
-
+  
+    try {
+      // Call the createProfile server action
+      const result = await createProfile(data, walletAddress)
+  
+      // Check the result of the server action
+      if (result.success) {
+        setSubmissionStatus("success")
+      } else {
+        setSubmissionStatus("error")
+        console.error("Profile creation failed:", result.error)
+      }
+    } catch (error) {
+      setSubmissionStatus("error")
+      console.error("An error occurred:", error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  
     // Wait for 2 seconds before redirecting
     setTimeout(() => {
       router.push("/TalentVault")
