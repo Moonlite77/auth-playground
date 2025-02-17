@@ -2,15 +2,16 @@
 
 import { ConsoleLogWriter } from "drizzle-orm"
 
-/*
+
 import { OpenAI } from "openai"
-import { put } from "@vercel/blob"
-import { db } from "@/db/index"
-import { profiles } from "@/db/schema"
+
+//import { put } from "@vercel/blob"
+//import { db } from "@/db/index"
+//import { profiles } from "@/db/schema"
 
 
 // Assuming you have these types defined elsewhere
-*/
+
 
 import type { FormData } from "@/app/types/formData"
 
@@ -28,9 +29,11 @@ export async function createProfile(data: FormData, wallet: string | undefined) 
     } else {
       console.log("No resume file provided")
     }
-/*
+
     // Step 3 & 4: Create the main string and 'items' string for DALL-E prompt
     const mainPrompt = createDallePrompt(data)
+    console.log(mainPrompt)
+    
 
     // Step 4: Send prompt to OpenAI API
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
@@ -40,6 +43,8 @@ export async function createProfile(data: FormData, wallet: string | undefined) 
     if (!imageUrl) {
       throw new Error("Failed to generate image")
     }
+    console.log(imageUrl)
+    /*
 
     // Step 5: Turn the image into a blob
     const imageResponse = await fetch(imageUrl)
